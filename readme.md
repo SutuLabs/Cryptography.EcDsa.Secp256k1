@@ -1,7 +1,6 @@
 ﻿## ChainEngine.Cryptography.EcDsa.Secp256k1
 
-This library compiles transaction signing and verifying algorithm secp256k1 and SHA256 which is used in several blockchains
-like Bitcoin, EOS and Graphene-based Steem, Golos, BitShares and of course in [UChainDb](https://github.com/uchaindb).
+This library compiles transaction signing and verifying algorithm secp256k1 and SHA256 which is used in several blockchains like Bitcoin, EOS and Graphene-based Steem, Golos, BitShares and of course in blockchain database [UChainDb](https://github.com/uchaindb).
 
 * For verifying part, utilized MIT code from [AntShares].
 * For signing part, utilizing [Cryptography.ECDSA] for far better performance.
@@ -40,3 +39,7 @@ public byte[] Sign(byte[] privateKey, IEnumerable<byte[]> data)
 public bool Verify(byte[] publicKey, byte[] sig, byte[] data)
 public bool Verify(byte[] publicKey, byte[] sig, IEnumerable<byte[]> data)
 ```
+
+### License
+
+MIT
