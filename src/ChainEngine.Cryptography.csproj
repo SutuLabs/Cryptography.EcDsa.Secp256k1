@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>UChainDB.BingChain.Engine.Cryptography</RootNamespace>
+    <PackageId>UChainDB.ChainEngine.Cryptography</PackageId>
+    <Authors>&lt;Icer Liang&gt;UChainDB</Authors>
+    <Company>UChainDB</Company>
+    <Product>UChainDB.ChainEngine.Cryptography</Product>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <Description>Cryptography library for UChainDB</Description>
+    <Copyright>UChainDB</Copyright>
+    <PackageIconUrl>http://app.uchaindb.com/apple-touch-icon.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/uchaindb</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/uchaindb</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/uchaindb</PackageLicenseUrl>
+    <PackageTags>blockchain database</PackageTags>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Title>UChainDB.ChainEngine.Cryptography</Title>
+    <Version Condition=" '$(BUILD_BUILDNUMBER)' == '' ">0.0.1-local</Version>
+    <Version Condition=" '$(BUILD_BUILDNUMBER)' != '' ">0.1.$(BUILD_BUILDNUMBER)-beta</Version>
+    <FileVersion Condition=" '$(BUILD_BUILDNUMBER)' == '' ">0.0.1-local</FileVersion>
+    <FileVersion Condition=" '$(BUILD_BUILDNUMBER)' != '' ">0.1.$(BUILD_BUILDNUMBER)</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1705;7035</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cryptography.ECDSA.Secp256k1" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChainContracts\ChainContracts.csproj" />
+  </ItemGroup>
+
+</Project>
