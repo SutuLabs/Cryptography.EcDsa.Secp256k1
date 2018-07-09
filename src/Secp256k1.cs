@@ -7,20 +7,12 @@ using UChainDB.BingChain.Engine.Cryptography.EC;
 
 namespace UChainDB.BingChain.Engine.Cryptography
 {
-    public class EcDsa
+    public class Secp256k1
     {
-        public ECCurve SelectedCurve { get; }
-        public System.Security.Cryptography.HashAlgorithm HashAlgorithm { get; }
+        public ECCurve SelectedCurve { get; } = ECCurve.Secp256k1;
 
-        public EcDsa()
-            : this(ECCurve.Secp256k1, System.Security.Cryptography.SHA256.Create())
+        public Secp256k1()
         {
-        }
-
-        public EcDsa(ECCurve curve, System.Security.Cryptography.HashAlgorithm hashAlgorithm)
-        {
-            this.SelectedCurve = curve;
-            this.HashAlgorithm = hashAlgorithm;
         }
 
         public byte[] GetPublicKey(byte[] privateKey)
@@ -66,8 +58,7 @@ namespace UChainDB.BingChain.Engine.Cryptography
                 throw new ArgumentNullException(nameof(bytesArray));
             }
 
-            var hash = HashAlgorithm;
-            try
+            using (var hash = System.Security.Cryptography.SHA256.Create())
             {
                 var e = bytesArray.GetEnumerator();
                 while (e.MoveNext())
@@ -77,10 +68,6 @@ namespace UChainDB.BingChain.Engine.Cryptography
                 }
                 hash.TransformFinalBlock(new byte[] { }, 0, 0);
                 return hash.Hash;
-            }
-            finally
-            {
-                hash.Clear();
             }
         }
 

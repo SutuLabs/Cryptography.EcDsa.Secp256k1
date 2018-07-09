@@ -21,7 +21,7 @@
     <Version Condition=" '$(BUILD_BUILDNUMBER)' != '' ">0.1.$(BUILD_BUILDNUMBER)-beta</Version>
     <FileVersion Condition=" '$(BUILD_BUILDNUMBER)' == '' ">0.0.1-local</FileVersion>
     <FileVersion Condition=" '$(BUILD_BUILDNUMBER)' != '' ">0.1.$(BUILD_BUILDNUMBER)</FileVersion>
-    <AssemblyName>ChainEngine.Cryptography.EcDsa</AssemblyName>
+    <AssemblyName>ChainEngine.Cryptography.EcDsa.Secp256k1</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
