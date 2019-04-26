@@ -38,6 +38,7 @@ public byte[] Sign(byte[] privateKey, byte[] data)
 public byte[] Sign(byte[] privateKey, IEnumerable<byte[]> data)
 public bool Verify(byte[] publicKey, byte[] sig, byte[] data)
 public bool Verify(byte[] publicKey, byte[] sig, IEnumerable<byte[]> data)
+public byte[] GetSharedKey(byte[] privKey, byte[] pubKeyFromOther)
 ```
 
 ### License

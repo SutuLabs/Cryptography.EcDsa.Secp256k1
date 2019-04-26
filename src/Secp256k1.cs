@@ -51,6 +51,12 @@ namespace UChainDB.BingChain.Engine.Cryptography
             return dsa.VerifySignature(dataHash, r, s);
         }
 
+        public byte[] GetSharedKey(byte[] privKey, byte[] pubKeyFromOther)
+        {
+            var shared = ECPoint.DecodePoint(pubKeyFromOther, this.SelectedCurve) * privKey;
+            return shared.X.ToByteArray();
+        }
+
         private byte[] HashBytes(IEnumerable<byte[]> bytesArray)
         {
             if (bytesArray == null)
